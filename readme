@@ -1,0 +1,33 @@
+# Calculator
+
+This is a simple calculator built using JavaScript.
+
+## Features
+
+- Addition
+- Subtraction
+- Multiplication
+- Division
+
+## Getting Started
+
+To get started with the calculator, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/your-username/calculator.git`
+2. Open the `index.html` file in your web browser.
+3. Start performing calculations!
+
+## Usage
+
+1. Enter the first number in the input field.
+2. Select the desired operation from the dropdown menu.
+3. Enter the second number in the input field.
+4. Click the "Calculate" button to see the result.
+
+## Contributing
+
+Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
