@@ -27,7 +27,7 @@ p {
     flex-direction: column;
     width:800px;
     align-items: center;
-    background-color: blueviolet;
+    background-color: grey;
     padding-bottom: 50px;
 }
 #menu {
@@ -77,4 +77,19 @@ button:hover {
 
 .on {
     background-color:darkslategrey !important;
+}
+
+.operator {
+    text-Align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: bisque;
+}
+
+#displaywindow {
+    background-color: white;
+    height:60px;
+    margin: 20px;
+    text-align: center;
 }

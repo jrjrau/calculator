@@ -29,6 +29,7 @@ function divide(x,z){
 const numButtons = document.querySelector("#numButtons");
 const display = document.querySelector("#displaywindow");
 const equals = document.querySelector("#equals")
+const clear = document.querySelector("#clear")
 
 function buildCalc(){
     for (let i = 0; i < 14; i++){
@@ -40,25 +41,30 @@ function buildCalc(){
             case 0:
                 div.textContent='+';
                 div.style.flexBasis = `calc(100%/4)`;
+                div.classList.add("operator")
 
                 break
             case 1:
                 div.textContent='-';
                 div.style.flexBasis = `calc(100%/4)`;
-
+                div.classList.add("operator")
                 break
             case 2:
                 div.textContent='*';
                 div.style.flexBasis = `calc(100%/4)`;
-
+                div.classList.add("operator")
                 break
             case 3:
                 div.textContent='/';
                 div.style.flexBasis = `calc(100%/4)`;
-
+                div.classList.add("operator")
                 break
             case 13:
                 div.textContent=0;
+                div.style.textAlign="center";
+                div.style.display = "flex";
+                div.style.alignItems= "center";
+                div.style.justifyContent= "center";
                 break
             default:
                 div.textContent=(i-3)
@@ -70,10 +76,11 @@ function buildCalc(){
         numButtons.appendChild(div);
 
         div.addEventListener("click", function (e) {
+            let background = e.target.style.background
             e.target.style.background = 'gray'
             console.log(e.target.id)
-            if (['=', '-', '/', '*'].includes(e.target.id)) {
-                console.log(operated)
+            if (['+', '-', '/', '*'].includes(e.target.id)) {
+                console.log('triggered on ', operated)
                 if (operated === true){
                     let formula = calculation
                     solve(formula)
@@ -92,7 +99,7 @@ function buildCalc(){
             console.log('78: ',calculation)
 
             setTimeout(function() {
-                e.target.style.background = 'white';
+                e.target.style.background = background;
             }, 100);
 
 
@@ -101,6 +108,7 @@ function buildCalc(){
     }}
 
 equals.addEventListener("click", function (e) {
+    let background = e.target.style.background
     e.target.style.background = 'gray'
 
             //console.log(calculation)
@@ -108,12 +116,30 @@ equals.addEventListener("click", function (e) {
             solve(formula)
 
             setTimeout(function() {
-                e.target.style.background = 'white';
+                e.target.style.background = background;
             }, 100);
 
 
 
 })
+
+clear.addEventListener("click", function (e) {
+    let background = e.target.style.background
+    e.target.style.background = 'gray'
+
+            //console.log(calculation)
+            calculation = '';
+            display.value = '';
+            operated = false;
+
+            setTimeout(function() {
+                e.target.style.background = background;
+            }, 100);
+
+
+
+})
+
 buildCalc()
 
 function solve(formula){
@@ -139,5 +165,6 @@ function solve(formula){
     console.log('answer is ',answer)
     calculation = answer
     console.log('calculation is ', calculation)
+    operated = false;
     return calculation
 }
