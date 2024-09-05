@@ -30,44 +30,27 @@ const numButtons = document.querySelector("#numButtons");
 const display = document.querySelector("#displaywindow");
 const equals = document.querySelector("#equals")
 const clear = document.querySelector("#clear")
+const operatorBtn = document.querySelector("#operators")
 
 function buildCalc(){
-    for (let i = 0; i < 14; i++){
+    for (let i = 0; i < 10; i++){
         const div = document.createElement("div");
-        div.classList.add("grid-item")
-        div.style.flexBasis = `calc(100%/3)`;
+        //div.classList.add("grid-item")
+        div.classList.add("item-"+(i+1))
+        //div.style.flexBasis = `calc(100%/3)`;
         div.style.border = '1px solid black';
         switch (i){
-            case 0:
-                div.textContent='+';
-                div.style.flexBasis = `calc(100%/4)`;
-                div.classList.add("operator")
-
-                break
-            case 1:
-                div.textContent='-';
-                div.style.flexBasis = `calc(100%/4)`;
-                div.classList.add("operator")
-                break
-            case 2:
-                div.textContent='*';
-                div.style.flexBasis = `calc(100%/4)`;
-                div.classList.add("operator")
-                break
-            case 3:
-                div.textContent='/';
-                div.style.flexBasis = `calc(100%/4)`;
-                div.classList.add("operator")
-                break
-            case 13:
+            case 9:
                 div.textContent=0;
-                div.style.textAlign="center";
-                div.style.display = "flex";
-                div.style.alignItems= "center";
+                //div.style.textAlign="center";
+                //div.style.display = "flex";
+                //div.style.alignItems= "center";
                 div.style.justifyContent= "center";
+                div.classList.add("numbers")
                 break
             default:
-                div.textContent=(i-3)
+                div.classList.add("numbers")
+                div.textContent=(i+1)
                 break
 
         }
@@ -138,6 +121,23 @@ clear.addEventListener("click", function (e) {
 
 
 
+})
+
+
+operatorBtn.addEventListener("click", function (e) {
+    console.log("you clicked an operator")
+    console.log('operated is ',operated)
+    console.log('you clicked ',e.target.id)
+    if (operated === true){
+        let formula = calculation
+        solve(formula)
+    }
+    if (operated === false){
+        operated = true;
+    }
+    calculation += e.target.id;
+    console.log("calculation is ",calculation)
+    display.value = calculation
 })
 
 buildCalc()

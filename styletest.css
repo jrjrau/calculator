@@ -8,54 +8,35 @@ body {
     background-color: #f0f0f0;
 }
 
-#calculator {
+.container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 10px; /* Add gap between items */
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.grid-item {
-    display: flex;
-
-}
-
-#numButtons {
-    color : red;
-    display: flex;
-    flex-direction: column;
-}
-
-.item-10 {
-    justify-content: center;
-    text-align: center;
-
+    width: 360px; /* Adjust width to fit 3 items per row */
 }
 
 #displaywindow {
-    background-color: #222;
-    color: #fff;
+    width: 100%; /* Span the full width of the container */
     height: 60px;
-    margin: 0;
+    margin-bottom: 10px; /* Add space below the text box */
     padding: 10px;
     text-align: right;
     font-size: 2em;
     border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+    border: none;
 }
 
-
-.operators {
+.item {
+    flex: 1 1 calc(33.33% - 10px); /* Allow items to grow, shrink, and take up 1/3 of the container's width minus the gap */
     display: flex;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-
-button {
-    font-size: 1.5em;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -64,17 +45,16 @@ button {
     padding: 20px;
 }
 
-button:hover {
+.item-10 {
+    flex: 1 1 100%; /* Make the last item span the full width */
+}
+
+.item:hover {
     background-color: #e7e7e7;
 }
 
-button:active {
+.item:active {
     background-color: #ccc;
-}
-
-.on {
-    background-color: darkslategrey !important;
-    color: #fff;
 }
 
 .operator {
